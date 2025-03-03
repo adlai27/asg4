@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to the Space Cat's Playground With Lighting!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      font-family: sans-serif;
+    }
+    header {
+      background: linear-gradient(135deg, #eed2ed, #c27cbc);
+      color: #241515;
+      text-align: center;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    #main-canvas {
+      display: block;
+      margin: 10px auto;
+      border: 2px solid #333;
+    }
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1em;
+    }
+    .control-section {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 14px;
+      margin: 8px;
+      width: 280px;
+    }
+    .control-section h3 {
+      margin-top: 0;
+    }
+    label {
+      display: inline-block;
+      width: 70px;
+    }
+    input[type="range"] {
+      width: 130px;
+    }
+    input[type="color"] {
+      margin: 0.5em 0;
+    }
+    button {
+      margin: 6px 0;
+      padding: 6px 12px;
+      background: #444;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #666;
+    }
+    footer {
+      margin-top: 1em;
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body onload="main()">
+
+<header>
+  <h1>Welcome to the Space Cat's Playground With Lighting!</h1>
+</header>
+
+<canvas id="main-canvas" width="1000" height="600">
+  Your browser does not support HTML5 &lt;canvas&gt;.
+</canvas>
+
+
+<div class="control-box">
+  <h2>Movement</h2>
+  <p style="line-height:1.6em;">
+    <b>W</b> = Forward<br>
+    <b>S</b> = Backward<br>
+    <b>A</b> = Left<br>
+    <b>D</b> = Right<br>
+    <b>Z, X</b> = Up/Down<br>
+    <b>Q, E</b> = Turn camera (yaw)<br>
+    <i>(Mouse drag = pitch + yaw)</i>
+  </p>
+</div>
+
+
+<div id="controls">
+  <!-- Light Controls -->
+  <div class="control-section">
+    <h3>Light Controls</h3>
+    <label>Light X:</label><input type="range" id="lightX" min="-10" max="10" step="0.1" value="2"><br>
+    <label>Light Y:</label><input type="range" id="lightY" min="-10" max="10" step="0.1" value="2"><br>
+    <label>Light Z:</label><input type="range" id="lightZ" min="-10" max="10" step="0.1" value="2"><br>
+    <label>Light R:</label><input type="range" id="lightR" min="0" max="1" step="0.01" value="1"><br>
+    <label>Light G:</label><input type="range" id="lightG" min="0" max="1" step="0.01" value="1"><br>
+    <label>Light B:</label><input type="range" id="lightB" min="0" max="1" step="0.01" value="1">
+    <button id="btnAnimateLight">Animate Light</button><br>
+  </div>
+
+  <!-- Scene Toggles -->
+  <div class="control-section">
+    <h3>Scene Toggles</h3>
+    <button id="btnToggleNormals">Toggle Normal Viz</button><br>
+    <button id="btnLightOn">Light On</button>
+    <button id="btnLightOff">Light Off</button><br>
+    <button id="btnSpotLight">Toggle Big Spotlight</button><br>
+  </div>
+  
+  <!-- Color pickers-->
+  <div class="control-section">
+    <h3>Change Colors For Objects</h3>
+    <label for="cubeColor">Cube:</label>
+    <input type="color" id="cubeColor" value="#ff0000"><br>
+    <label for="sphereColor">Sphere:</label>
+    <input type="color" id="sphereColor" value="#00ff00"><br>
+    <p>Change each object's color!</p>
+  </div>
+</div>
+
+<footer>
+</footer>
+
+<!-- Libraries -->
+<script src="lib/cuon-matrix-cse160.js"></script>
+<script src="lib/cuon-utils.js"></script>
+<script src="lib/webgl-debugs.js"></script>
+
+<script src="camera.js"></script>
+<script src="Cube.js"></script>
+<script src="sphere.js"></script>
+<script src="asgn4.js"></script>
+
+</body>
+</html>
